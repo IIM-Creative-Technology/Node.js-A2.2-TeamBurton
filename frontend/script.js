@@ -1,6 +1,6 @@
 const btn = document.getElementById("btn");
 const btnSocket = document.getElementById("btnSocket");
-const ul = document.querySelector("ul");
+const div = document.getElementById("div");
 
 btn.addEventListener("click", () => {
     fetch("http://localhost:3000/", {
@@ -23,34 +23,35 @@ const socket = io("http://localhost:3000");
 btnSocket.addEventListener("click", () => {
     socket.emit("message", 
     {
-        msg: "Hi 👋"
+        msg: "Hello helloo"
     })
 });
 
-// document.addEventListener("mousemove", (e) => {
-//     console.log({x: e.pageX, y: e.pageY});
-//     socket.emit("mouse", {x: e.pageX, y:e.pageY})
-// })
-
 socket.on("data", (data) => {
     console.log(socket.id); 
-    const li = document.createElement('li');
-    li.innerText = data.msg;
-    ul.append(li);
+    const div2 = document.createElement('div');
+    div2.classList.add('thMsg')
+
+    const div3 = document.createElement('div');
+    div3.classList.add('text')
+
+    const img = document.createElement('img');
+    img.src = "../img/profil.png";
+
+    const user = document.createElement('user');
+    user.innerText = "User";
+
+    const p = document.createElement('p');
+    p.innerText = data.msg;
+
+    div2.append(img);
+
+    div3.append(user);
+    div3.append(p);
+
+    div2.append(img);
+    div2.append(div3);
+
+    div.append(div2);
 })
 
-// const m = document.createElement('span');
-// m.style.backgroundColor = "red";
-// m.style.width = "20px";
-// m.style.height = "20px";
-// m.style.display = "inline-block";
-// m.style.position = "absolute";
-
-// const body = document.querySelector("body");
-// body.appendChild(m);
-
-// socket.on("mouseM", (e) => {
-//     console.log(e);
-//     m.style.right = e.x;
-//     m.style.bottom = e.y;
-// });

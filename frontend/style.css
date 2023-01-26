@@ -1,0 +1,55 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+header {
+    position: fixed;
+}
+svg {
+    z-index: -1;
+    position: absolute;
+    bottom: 0;
+}
+
+main {
+    width: 1fr;
+    height: 100vh;
+}
+.haut {
+    padding: 50px 100px;
+    height: 80%;
+    position: relative;
+    bottom: 0;
+    display: flex;
+    flex-direction: column-reverse;
+    overflow: auto;
+}
+
+.msg {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 10px;
+}
+
+.thMsg {
+    display: flex;
+    gap: 10px;
+}
+
+.msg img {
+    width: 50px;
+    height: 50px;
+}
+
+.bas {
+    height: 20%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+button {
+    padding: 10px 20px;
+}
