@@ -20,6 +20,10 @@ const userSchema = {
 
 const User = mongoose.model('User', userSchema);
 
+User.find()
+.then(users => { console.log(users) })
+.catch(error => { console.log("User Find Error", error) })
+
 const app = express();
 const httpServer = http.createServer(app);
 
@@ -37,6 +41,11 @@ io.on("connection", (socket) => {
     socket.on("message", (data) => {
         io.emit("data", data)
     });
+
+    socket.on('chat-message', function (message) {
+        io.emit("message", message)
+        console.log('message : ' + message.text);
+      });
 
     // socket.on("mouse", (e) => {
     //     io.emit("mouseM", e);

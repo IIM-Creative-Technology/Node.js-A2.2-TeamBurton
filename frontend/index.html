@@ -11,10 +11,24 @@
 
     <main>
         <div class="haut">
+            <section id="chat">
+                <ul id="messages"></ul>
+                <form action="" id="form">
+                  <input id="ecrire" autocomplete="off" />
+                  <input type="submit" value="send" id="send" onclick="getElementValue()">
+                </form>
+              </section>
+
             <div class="msg" id="div"></div>
+            <!-- <ul id="messages"></ul> -->
         </div>
 
         <div class="bas" id="style-2">
+            <!-- <form action="">
+              <input id="m" autocomplete="off" />
+              <input type="button" value="submit">
+            </form> -->
+
             <button id="btn">Fetch data</button>
             <button id="btnSocket">Send socket</button>
         </div>

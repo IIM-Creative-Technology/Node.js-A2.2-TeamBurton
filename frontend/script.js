@@ -11,10 +11,10 @@ btn.addEventListener("click", () => {
         headers: {
         "Content-Type": "application/json;charset=utf-8"
         }
-    }).then(d => {
-        return d.json()
-    }).then(dd => {
-        console.log(dd);
+    }).then(res => {
+        return res.json()
+    }).then(response => {
+        console.log(response);
     })
 });
 
@@ -55,3 +55,31 @@ socket.on("data", (data) => {
     div.append(div2);
 })
 
+const form = document.getElementById("form")
+const textmsg = document.getElementById('ecrire')
+const sectionchat = document.getElementById('chat')
+const mesf = document.getElementById('message')
+
+form.onsubmit = function(e) {
+	e.preventDefault(); // On évite le recharchementde la page lors de la validation du formulaire
+    // On crée notre objet JSON correspondant à notre message
+    let themessage = textmsg.value
+
+    let message = {
+	 	text : `${themessage}`
+	}
+
+	socket.emit('chat-message', message); // On émet l'événement avec le message associé
+    textmsg.value(''); // On vide le champ texte
+
+    socket.emit('chat-message', message);
+};
+
+
+socket.on('chat-message', (message) => {
+
+    const p = document.createElement('p');
+    p.innerText = message.text;
+
+    mesf.append(p);
+  });
