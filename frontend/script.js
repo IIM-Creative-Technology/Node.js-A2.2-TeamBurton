@@ -6,6 +6,7 @@ const zonemsg = document.getElementById('zonemsg')
 
 const socket = io("http://localhost:3000");
 
+
 form.onsubmit = function(e) {
 	e.preventDefault(); 
 
@@ -32,6 +33,7 @@ socket.on('message', (message) => {
   img.src = "../img/profil.png";
 
   const user = document.createElement('p');
+  user.classList.add('mesTxt')
   user.innerText = 'User';
 
   const p = document.createElement('p');
@@ -48,3 +50,4 @@ socket.on('message', (message) => {
 
 
   });
+
