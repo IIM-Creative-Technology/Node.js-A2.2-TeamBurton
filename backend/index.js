@@ -35,7 +35,6 @@ const io = new Server(httpServer, {
 
 io.on("connection", (socket) => {
     console.log(`A user connected. Socket id: ${socket.id}`);
-
     socket.on('chat-message', (message) => {
         io.emit("message", message)
         console.log('message : ' + message.text);
