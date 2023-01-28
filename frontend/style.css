@@ -28,9 +28,9 @@ main {
 }
 
 .msg {
-    display: flex;
-    flex-direction: column-reverse;
     gap: 10px;
+    display: flex;
+    flex-direction: column;
 }
 
 .thMsg {

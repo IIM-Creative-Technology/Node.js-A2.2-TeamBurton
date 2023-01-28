@@ -2,9 +2,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
 import {Server} from "socket.io";
-
 import http from 'http';
-
 import mongoose from "mongoose";
 
 mongoose.connect('mongodb://127.0.0.1:27017/test');
@@ -20,9 +18,9 @@ const userSchema = {
 
 const User = mongoose.model('User', userSchema);
 
-User.find()
-.then(users => { console.log(users) })
-.catch(error => { console.log("User Find Error", error) })
+// User.find()
+// .then(users => { console.log(users) })
+// .catch(error => { console.log("User Find Error", error) })
 
 const app = express();
 const httpServer = http.createServer(app);
@@ -38,19 +36,10 @@ const io = new Server(httpServer, {
 io.on("connection", (socket) => {
     console.log(`A user connected. Socket id: ${socket.id}`);
 
-    socket.on("message", (data) => {
-        io.emit("data", data)
-    });
-
-    socket.on('chat-message', function (message) {
+    socket.on('chat-message', (message) => {
         io.emit("message", message)
         console.log('message : ' + message.text);
-      });
-
-    // socket.on("mouse", (e) => {
-    //     io.emit("mouseM", e);
-    //     console.log(e);
-    // })
+    });
 });
 
 app.use(bodyParser.json());
