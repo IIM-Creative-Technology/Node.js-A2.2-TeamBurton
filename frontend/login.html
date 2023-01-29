@@ -21,14 +21,14 @@
     </section>
 
     <div>
-        <form style="display: none" method="POST" id="delete-form">
+        <form style="display: none; align-items: center" method="POST" id="delete-form">
             <input type="email" name="email" id="del-email" placeholder="Email" class="form-input">
             <input type="password" name="password" id="del-password" placeholder="Mot de passe" class="form-input">
-            <input type="submit" value="Supprimer">
+            <input type="submit" value="Supprimer" class="form-button">
         </form>
     </div>
 
-    <button id="del-button" class="del-button">Supprimer le compte</button>
+    <span><button id="del-button" class="del-button">Supprimer le compte</button><a class="del-button" href="register.html">Créer un compte</a></span>
 
 
     <script src="http://127.0.0.1:3000/socket.io/socket.io.js"></script>
