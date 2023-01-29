@@ -1,14 +1,30 @@
-let express = require('express')
-let path = require('path')
-let session = require('express-session')({
-	secret: 'XASDASDA',
-	resave: true,
-	saveUninitialized: true
-})
-let sharedsession = require('express-socket.io-session')
-
+import express from "express"
+import path from "path"
+import session from 'express-session';
+// somewhere in your initialization file
 let app = express()
-app.use(session)
+
+
+app.use(session({
+    secret: 'my-secret',
+    resave: false,
+    saveUninitialized: false,
+  }),
+);
+import sharedsession from "express-socket.io-session"
+import { Server } from "socket.io"
+import { createServer } from 'http'
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+
+
+const httpServer = createServer(app)
+
+
 
 app.get('/', function(req, res) {
 	res.sendFile(path.resolve(__dirname + '/../frontend/tic-tac-toe.html'))
@@ -27,11 +43,14 @@ res.sendFile(path.resolve(__dirname, '../frontend/tic-tac-toe.js'));
 });
 
 
-server = app.listen(4000)
 
 //server.maxConnections = 4;
 
-let io = require('socket.io')(server)
+let io = new Server(httpServer,{
+	cors:{
+		origin:"*"
+	}
+})
 io.use(sharedsession(session))
 
 function isWinner(board) {
@@ -138,4 +157,8 @@ io.on('connection', function(socket) {
 		userCount--
 		io.emit('reset', null)
 	})
+})
+
+httpServer.listen(3000, () => {
+	console.log("zdqd")
 })
