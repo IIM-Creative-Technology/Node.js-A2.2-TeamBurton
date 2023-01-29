@@ -8,10 +8,12 @@
     <title>Document</title>
 </head>
 <body>
-
-    <button id="fetch">Fetch data</button>
-    <h1 id="name"></h1>
-    <h2 id="email"></h2>
+    <form method="POST" id="register-form">
+        <input type="text" name="name" id="reg-name">
+        <input type="email" name="email" id="reg-email">
+        <input type="password" name="password" id="reg-password">
+        <input type="submit" value="S'enregistrer">
+    </form>
 
     <script src="http://127.0.0.1:3000/socket.io/socket.io.js"></script>
     <script src="main.js"></script>
