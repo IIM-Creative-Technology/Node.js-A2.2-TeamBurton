@@ -1,7 +1,7 @@
 {
-  "name": "backend",
+  "name": "teamburton",
   "version": "1.0.0",
-  "description": "",
+  "description": "tictactoe",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -16,6 +16,8 @@
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.9.0",
+    "express-session": "^1.17.3",
+    "express-socket.io-session": "^1.3.5",
     "socket.io": "^4.5.4"
   },
   "type": "module"
