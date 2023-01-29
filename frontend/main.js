@@ -77,7 +77,7 @@ if (deleteForm !== null) {
 const delButton = document.getElementById('del-button')
 if (delButton !== null) {
     delButton.onclick = () => {
-        deleteForm.style.display === 'block' ? deleteForm.style.display = 'none' : deleteForm.style.display = 'block'
+        deleteForm.style.display === 'flex' ? deleteForm.style.display = 'none' : deleteForm.style.display = 'flex'
     }
 }
 

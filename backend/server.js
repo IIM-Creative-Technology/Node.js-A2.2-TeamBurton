@@ -1,3 +1,8 @@
+import express from 'express';
+import cors from 'cors';
+import { Server } from 'socket.io';
+import bodyParser from 'body-parser';
+import http from 'http';
 
 import mongoose from 'mongoose';
 mongoose.connect('mongodb://127.0.0.1:27017/test')
@@ -40,10 +45,6 @@ app.post("/", (req, res) => {
     console.log(req.body);
     res.json(req.body);
 })
-
-httpServer.listen(port, () => {
-    console.log(`Le serveur écoute sur ${port}`);
-});
 
 app.use('/api/users', RegisterRoute)
 app.use('/api/users', ConnexionRoute)
