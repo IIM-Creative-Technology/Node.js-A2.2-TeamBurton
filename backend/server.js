@@ -19,6 +19,8 @@ app.get('/tic-tac-toe.css', (req, res) => {
     res.sendFile(path.resolve(__dirname, '../frontend/tic-tac-toe.css'));
   });
 
+  
+  
 app.get('/tic-tac-toe.js', (req, res) => {
 res.setHeader('Content-Type', 'application/javascript');
 res.sendFile(path.resolve(__dirname, '../frontend/tic-tac-toe.js'));
