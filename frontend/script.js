@@ -51,3 +51,5 @@ socket.on('message', (message) => {
 
   });
 
+
+console.log(data)

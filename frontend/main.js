@@ -84,4 +84,5 @@ if (delButton !== null) {
 function messageDisplay(data) {
     const resultMessage = document.getElementById('result-message')
     resultMessage.innerText = data.message
+    data.message === 'Connexion réussie !' ? window.location = 'index.html' : console.log(data.message)
 }
