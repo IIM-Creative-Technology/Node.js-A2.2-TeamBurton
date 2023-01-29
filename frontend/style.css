@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: sans-serif;
+}
+
+.connexion-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #ffffff;
+    background: rgb(54,209,220);
+    background: linear-gradient(45deg, rgba(54,209,220,1) 0%, rgba(91,134,229,1) 100%);
+}
+
+.form-card {
+    width: 90vw;
+    min-height: 60vh;
+    margin: 20vh auto 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10.2px);
+    -webkit-backdrop-filter: blur(10.2px);
+}
+
+.form-title {
+    font-size: 24px;
+}
+
+.form-details {
+    text-align: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin-top: 30px;
+    gap: 15px;
+}
+
+.form-input {
+    padding: .8rem 1rem;
+    background: none;
+    color: #ffffff;
+    outline: none;
+    border: 1px solid #ffffff;
+}
+
+.form-input::placeholder {
+    color: #ffffff;
+}
+
+.form-button {
+    padding: 1rem 2rem;
+    background: none;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    margin: 25px auto;
+    width: 100%;
+    font-weight: bold;
+}
+
+.form-button:hover {
+    cursor: pointer;
+    color: rgba(91,134,229,1);
+    background: #ffffff;
+}
+
+.del-button {
+    margin: 10px 0 20vh;
+    background: none;
+    border: none;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+    .form-card {
+        width: 60vw;
+    }
+}

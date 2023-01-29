@@ -18,10 +18,10 @@ const register = (req, res) => {
          user.save()
              .then(user => {
                  // res.redirect('http://localhost:63342/nodejs/rendu/frontend/index.html')
-                 res.json({ message: 'User Added Successufully !' })
+                 res.json({ message: 'Votre compte a été succès !' })
              })
              .catch(error => {
-                 res.json({ message: 'An error occured' })
+                 res.json({ message: 'Une erreur est survenue !' })
              })
      })
 }
@@ -39,17 +39,17 @@ const connexion = (req, res) => {
 
                     if (result) {
                         res.json({
-                            message: 'Login Successful'
+                            message: 'Connexion réussie !'
                         })
                     } else {
                         res.json({
-                            message: 'Passwords does not matched'
+                            message: 'Mot de passe incorrect !'
                         })
                     }
                 })
             } else {
                 res.json({
-                    message: 'No user found'
+                    message: 'Email incorrect !'
                 })
             }
         })
@@ -70,18 +70,18 @@ const deletion = (req, res) => {
                         User.findOneAndDelete({'email': req.body.email})
                             .then(result => {
                                 res.json({
-                                    message: 'User deleted'
+                                    message: 'Votre compte a été supprimé !'
                                 })
                             })
                     } else {
                         res.json({
-                            message: 'Passwords does not matched'
+                            message: 'Mot de passe incorrect !'
                         })
                     }
                 })
             } else {
                 res.json({
-                    message: 'No user found'
+                    message: 'Email incorrect !'
                 })
             }
         })

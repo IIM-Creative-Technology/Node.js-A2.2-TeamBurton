@@ -5,17 +5,22 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
-<body>
-    <form method="POST" id="register-form">
-        <input type="text" name="name" id="reg-name">
-        <input type="email" name="email" id="reg-email">
-        <input type="password" name="password" id="reg-password">
-        <input type="submit" value="S'enregistrer">
-    </form>
+<body class="connexion-body">
+    <div class="form-card">
+        <h1 class="form-title">S'inscrire</h1>
+        <p class="form-details">Veuillez renseigner les champs demandés</p>
+        <form method="POST" id="register-form" class="form" required>
+            <input type="text" name="name" id="reg-name" placeholder="Pseudo" class="form-input" required>
+            <input type="email" name="email" id="reg-email" placeholder="Email" class="form-input" required>
+            <input type="password" name="password" id="reg-password" placeholder="Mot de passe" class="form-input" required>
+            <input type="submit" value="S'inscrire" class="form-button">
+        </form>
 
-    <h2 id="result-message"></h2>
+        <h2 id="result-message" class="form-message"></h2>
+    </div>
 
     <script src="http://127.0.0.1:3000/socket.io/socket.io.js"></script>
     <script src="main.js"></script>
