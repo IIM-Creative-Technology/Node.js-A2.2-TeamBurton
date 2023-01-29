@@ -7,21 +7,6 @@ import mongoose from "mongoose";
 
 mongoose.connect('mongodb://127.0.0.1:27017/test');
 
-const userSchema = {
-    name: String,
-    mail: String,
-    password: String,
-    isAdmin: Boolean,
-    isVerify: Boolean,
-    age: Number
-};
-
-const User = mongoose.model('User', userSchema);
-
-// User.find()
-// .then(users => { console.log(users) })
-// .catch(error => { console.log("User Find Error", error) })
-
 const app = express();
 const httpServer = http.createServer(app);
 
