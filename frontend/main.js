@@ -21,7 +21,7 @@ if (registerForm !== null) {
         }).then(response => {
             return response.json()
         }).then(data => {
-            console.log(data.message)
+            messageDisplay(data)
         })
     }
 }
@@ -45,7 +45,7 @@ if (loginForm !== null) {
             return response.json()
         }).then(data => {
             // data.message === 'Login Successful' ? window.location = 'index.html' : console.log(data.message)
-            console.log(data.message)
+            messageDisplay(data)
         })
     }
 }
@@ -69,7 +69,7 @@ if (deleteForm !== null) {
             return response.json()
         }).then(data => {
             // data.message === 'Login Successful' ? window.location = 'index.html' : console.log(data.message)
-            console.log(data.message)
+            messageDisplay(data)
         })
     }
 }
@@ -79,4 +79,9 @@ if (delButton !== null) {
     delButton.onclick = () => {
         deleteForm.style.display === 'block' ? deleteForm.style.display = 'none' : deleteForm.style.display = 'block'
     }
+}
+
+function messageDisplay(data) {
+    const resultMessage = document.getElementById('result-message')
+    resultMessage.innerText = data.message
 }
