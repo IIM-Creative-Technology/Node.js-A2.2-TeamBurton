@@ -25,9 +25,30 @@ const io = new Server(myServer, {
     }
 })
 
-io.on("connection", socket => {
-    console.log(`User connected : ${socket.id}`)
+io.on("connection", (socket) => {
+    console.log(`A user connected. Socket id: ${socket.id}`);
+    socket.on('chat-message', (message) => {
+        io.emit("message", message)
+        console.log('message : ' + message.text);
+    });
+});
+
+app.use(bodyParser.json());
+app.use(cors());
+
+app.get("/", (req, res) => {
+    console.log(`Un utilisateur s'est connecté`);
+    res.json({msg: "Hello world"});
+});
+
+app.post("/", (req, res) => {
+    console.log(req.body);
+    res.json(req.body);
 })
+
+httpServer.listen(port, () => {
+    console.log(`Le serveur écoute sur ${port}`);
+});
 
 app.use('/api/users', RegisterRoute)
 app.use('/api/users', ConnexionRoute)
